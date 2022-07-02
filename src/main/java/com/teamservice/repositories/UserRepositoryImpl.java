@@ -106,6 +106,8 @@ public class UserRepositoryImpl implements UserRepository {
             return session
                     .createQuery("select u from User u where current_date - lastModified >= 1", User.class)
                     .getResultList();
-            }
+            }catch (Exception e){
+            e.printStackTrace();
+            throw new RuntimeException();
     }
 }
